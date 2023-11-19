@@ -28,8 +28,10 @@
 		
 		<!-- The script element is used to define the Handlebars template -->
 		<script type="text/x-handlebars-template" id="tableTemplate">
-			<table class='table table-striped table-bordered thead-dark'>
-				<tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+			<table class='table table-striped table-bordered'>
+				<thead class='thead-dark'>
+					<tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+				</thead>
 				{{#each rows}}
 					<tr>
 						<td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
