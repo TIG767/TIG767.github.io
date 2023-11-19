@@ -30,7 +30,12 @@
 		<script type="text/x-handlebars-template" id="tableTemplate">
 			<table class='table table-striped table-bordered'>
 				<thead class='thead-dark'>
-					<tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+					<tr>
+						<th scope='col'>Name</th>
+						<th scope='col'>Major</th>
+						<th scope='col'>Midterm</th>
+						<th scope='col'>Final</th>
+					</tr>
 				</thead>
 				{{#each rows}}
 					<tr>
