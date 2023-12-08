@@ -18,23 +18,17 @@
     <div>
        <ul class="nav navbar-nav">
            <li class="active"><a href="index.html">All Tickets</a></li>
-           <li><a href="25over.html">25mph or move over -test 9</a></li>
+           <li><a href="25over.html">25mph or move over - tst 10</a></li>
        </ul>
     </div>
 
 </nav>    <!-- end nav-bar -->
 
-<p>Select Dealer <select  v-on:change="getByMPH()" v-model='miles'>
-        <option value='10'>10</option>
-        <option value='20'>20</option>
-        <option value='25'>25</option>
-    </select></p>
-
 <div id="ticketApp">
 
-     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit</h2>
+     <h2>Tickets July 4, 2014, Minneapolis/St. Paul</h2>
           
-          <table class="table table-bordered table-striped" v-show="showTable">
+          <table class="table table-bordered table-striped">
               <tr>
                   <th>Ticket ID</th>
                   <th>Time</th>
@@ -58,24 +52,20 @@
        let app = Vue.createApp({
             data() {     // returns an object of data
                 return {
-					miles = "",
 					results: [],
-                    tickets: [],					// array to hold student data
-					showTable: false
+                    tickets: [],           // array to hold student data
                 }
             },
             created() {      // section executes as page loads
                 this.getData()  // load json data as page loads
+				this.tickets = this.results.filter( (ticket) => {ticket.actual_speed - ticket.posted_speed} >= 25 );
             },
             methods: {    // ajax request
                 async getData() {
                     const response = await fetch('tickets1.json')
                     this.results = await response.json()
+                    //tickets = data.filter( (item) => item.major == majSelect );     
                 },
-				getByMPH() {
-				this.showTable = true
-			    this.tickets = this.results.filter( (ticket) => (ticket.actual_speed - ticket.posted_speed) >= miles );
-		    }
             }
           })
       
