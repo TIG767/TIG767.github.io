@@ -18,7 +18,7 @@
     <div>
        <ul class="nav navbar-nav">
            <li class="active"><a href="index.html">All Tickets</a></li>
-           <li><a href="25over.html">25mph or move over</a></li>
+           <li><a href="25over.html">25mph or move over - TEST 5</a></li>
        </ul>
     </div>
 
@@ -26,7 +26,7 @@
 
 <div id="ticketApp">
 
-     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit - TEST 5</h2>
+     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit</h2>
           
           <table class="table table-bordered table-striped" v-on:onload="getByMPH">
               <tr>
@@ -67,7 +67,7 @@
                     this.results = await response.json()    
                 },
 				getByMPH() {
-			    this.tickets = this.results.filter( (tickets) => tickets.actual_speed - ticket.posted_speed >= this.speed_limit );
+			    this.tickets = this.results.filter( (tickets) => (tickets.actual_speed - ticket.posted_speed) >= this.speed_limit );
 		    }
             }
           })
