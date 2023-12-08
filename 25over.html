@@ -28,7 +28,7 @@
 
      <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit</h2>
           
-          <table class="table table-bordered table-striped">
+          <table class="table table-bordered table-striped" v-bind:function="getByDealer()">
               <tr>
                   <th>Ticket ID</th>
                   <th>Time</th>
@@ -64,11 +64,11 @@
             methods: {    // ajax request
                 async getData() {
                     const response = await fetch('tickets1.json')
-                    this.tickets = await response.json()
-			this.tickets = this.results.filter( (tickets) => (tickets.actual_speed - ticket.posted_speed) >= this.speed_limit )
-					
-                    //tickets = data.filter( (item) => item.major == majSelect );     
-                }
+                    this.tickets = await response.json()    
+                },
+				getByMPH() {
+			    this.tickets = this.results.filter( (tickets) => tickets.actual_speed - ticket.posted_speed >= this.speed_limit );
+		    }
             }
           })
       
