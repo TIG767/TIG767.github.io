@@ -26,7 +26,7 @@
 
 <div id="ticketApp">
 
-     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit - test 2</h2>
+     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit - TEST 3</h2>
           
           <table class="table table-bordered table-striped">
               <tr>
@@ -60,13 +60,16 @@
             },
             created() {      // section executes as page loads
                 this.getData()  // load json data as page loads
+				this.getMPH()
             },
             methods: {    // ajax request
                 async getData() {
                     const response = await fetch('tickets1.json')
                     this.results = await response.json()    
-			this.tickets = this.results.filter( (tickets) => tickets.actual_speed - ticket.posted_speed >= this.speed_limit );
                 },
+				getByMPH() {
+			    this.tickets = this.results.filter( (tickets) => tickets.actual_speed - ticket.posted_speed >= this.speed_limit );
+		    }
             }
           })
       
