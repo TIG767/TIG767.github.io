@@ -18,7 +18,7 @@
     <div>
        <ul class="nav navbar-nav">
            <li class="active"><a href="index.html">All Tickets</a></li>
-           <li><a href="25over.html">25mph or move over - tst 10</a></li>
+           <li><a href="25over.html">25mph or move over - tst 11</a></li>
        </ul>
     </div>
 
@@ -58,7 +58,7 @@
             },
             created() {      // section executes as page loads
                 this.getData()  // load json data as page loads
-				this.tickets = this.results.filter( (ticket) => {ticket.actual_speed - ticket.posted_speed} >= 25 );
+				this.tickets = this.results.filter( (ticket) => (ticket.actual_speed - ticket.posted_speed) >= 25 );
             },
             methods: {    // ajax request
                 async getData() {
