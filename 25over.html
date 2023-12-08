@@ -26,9 +26,9 @@
 
 <div id="ticketApp">
 
-     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit - TEST 3</h2>
+     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over the limit</h2>
           
-          <table class="table table-bordered table-striped">
+          <table class="table table-bordered table-striped" v-on:onload="getByMPH">
               <tr>
                   <th>Ticket ID</th>
                   <th>Time</th>
@@ -60,7 +60,6 @@
             },
             created() {      // section executes as page loads
                 this.getData()  // load json data as page loads
-				this.getMPH()
             },
             methods: {    // ajax request
                 async getData() {
