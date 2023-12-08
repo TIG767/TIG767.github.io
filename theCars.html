@@ -30,14 +30,8 @@
     
     <p>Today is: {{time_loaded}}</p> 
 	
-    <p>Select Dealer <select  v-on:change="getByDealer()" v-model='dealer'>
-        <option value='Joe Smith Cars & Trucks'>Joe Smith Cars & Trucks</option>
-        <option value='Sue Green Motorworld'>Sue Green Motorworld</option>
-        <option value='Kim Ivanov Quality Cars'>Kim Ivanov Quality Cars</option>
-        <option value='Max Johnson Chevrolet'>Max Johnson Chevrolet</option>
-        <option value='Linda Silver VDub'>Linda Silver VDub</option>
-        <option value='Stu Mar Autorama'>Stu Mar Autorama</option>
-        <option value='Moe Hernandez Motors'>Moe Hernandez Motors</option>
+    <p>Select Dealer <select  v-on:change="getByDealer()" v-model='price'>
+        <option value='4000'>4000</option>
     </select></p>
 
 	<div v-show="showTable" >
@@ -70,7 +64,7 @@
     let app = Vue.createApp({
         data() {     // returns an object of data
             return {
-                dealer: '',
+                price: '',
                 results: [],        //array to hold all car data returned
 			    cars: [],           // array to hold filtered data
 			    time_loaded: '',
@@ -92,7 +86,7 @@
 				//console.log(this.dealer)
 			    this.showTable = true
 			    // filter data from selected dealer
-			    this.cars = this.results.filter( (car) => car.dealer == this.dealer );
+			    this.cars = this.results.filter( (car) => car.price >= this.price );
 		    }
         },
     
